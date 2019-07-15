@@ -5,16 +5,16 @@ async function getNombre(username) {
     const respuesta = await fetch(url);
     const json = await respuesta.json();
 
-    if (json.status != 200)
+    if (respuesta.status != 200)
         throw Error('El usuario no existe');//verificamos el usuario y lanzamos la exception
 
     return json.bio;// retorna una promesa
 }
 
-(async function(){
+(async function () {
     try {
-        const nombre = await getNombre('yonoexisto');
-        cconsole.log(nombre);
+        const nombre = await getNombre('batego');
+        console.log(nombre);
     } catch (error) {
         console.log(`Error: ${error}`);
     }
