@@ -33,7 +33,13 @@ function getProfesion(id) {
     });
 }
 
-getUsuarios()
-    .then((usuarios) => getUsuario(usuarios[0].id))
-    .then((usuario) => getProfesion(usuario.profesion_id))
-    .then((profesion) => console.log('la profesion de boris es:', profesion))
+//ejecutamos las promesas una a una
+// getUsuarios()
+//     .then((usuarios) => getUsuario(usuarios[0].id))
+//     .then((usuario) => getProfesion(usuario.profesion_id))
+//     .then((profesion) => console.log('la profesion de boris es:', profesion))
+
+
+//ejecutamos promesas en simultaneo, imprime hasta q todas las promesas se resuelvan
+Promise.all([getProfesion(1), getProfesion(2)])
+    .then((res) => console.log(res))
