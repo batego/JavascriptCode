@@ -1,4 +1,8 @@
 (function () {
+
+     // --------------------------------------------------------------------
+    //                 TAMPLATE STRING
+    // --------------------------------------------------------------------
     
     // function activar(params: string, momento?: string,  objeto: string = 'batiseñal') {
     //     if (momento) {
@@ -9,6 +13,10 @@
 
     // activar('gordon','tarde')
 
+
+     // --------------------------------------------------------------------
+    //                 FUNCIONES FLECHA
+    // --------------------------------------------------------------------
 
     // const miFunction = (a: string) => a.toLocaleUpperCase()-;
     // const miFunction = (a: string) =>  { return a.toLocaleUpperCase() }; 
@@ -33,7 +41,10 @@
     // hulk.smash();
 
 
-    // --------------DESESTRUCTURACION DE OBJETOS --------------
+    // --------------------------------------------------------------------
+    //                 DESESTRUCTURACION DE OBJETOS
+    // --------------------------------------------------------------------
+    
 
     // const avenger = {
     //     nombre: 'Steve',
@@ -51,7 +62,9 @@
 
     // extraer(avenger);
 
-    // // ---------------- DESESTRUCTURACION DE ARREGLO -----------------
+     // --------------------------------------------------------------------
+    //                 DESESTRUCTURACION DE ARREGLOS
+    // --------------------------------------------------------------------
 
     // const marvel: string[] = ['Thor', 'Spiderman', 'Ironman'];
     // const [ uno, dos, tres ] = marvel;
@@ -61,7 +74,9 @@
     // console.log(tres);
 
 
-    //  ----------------PROMESAS--------------
+    // --------------------------------------------------------------------
+    //                 Promesas
+    // --------------------------------------------------------------------
 
     // console.log('Inicio');
 
@@ -78,23 +93,85 @@
 
     // console.log('fin');
 
-    // -------------------------------------------
+    // --------------------------------------------------------------------
+    //                PROMESAS indicando lo que devuelve la funcion
+    // --------------------------------------------------------------------
 
-    const retirarDinero = (montoRetirar: number): Promise<number> => {
-        let fondos = 1000;
+    // const retirarDinero = (montoRetirar: number): Promise<number> => {
+    //     let fondos = 1000;
 
-        return new Promise((res, rej) => {
-            if (montoRetirar > fondos) {
-                rej('Fondos insuficientes');
-            } else {
-                fondos -= montoRetirar;
-                res(fondos)
-            }
-        });
-    };
+    //     return new Promise((res, rej) => {
+    //         if (montoRetirar > fondos) {
+    //             rej('Fondos insuficientes');
+    //         } else {
+    //             fondos -= montoRetirar;
+    //             res(fondos)
+    //         }
+    //     });
+    // };
 
-    retirarDinero(1600)
-    .then(montoActual => console.log(`Disponible ${ montoActual }`))
-    .catch(err => console.warn(err));
+    // retirarDinero(1600)
+    // .then(montoActual => console.log(`Disponible ${ montoActual }`))
+    // .catch(err => console.warn(err));
+
+     // --------------------------------------------------------------------
+    //                 INTERFACES
+    // --------------------------------------------------------------------
+
+    // interface Xmen {
+    //     nombre: string,
+    //     edad: number,
+    //     poder?: string
+    // }
+
+    // const enviarMision = (xmen: Xmen) => {
+    //     console.log(`Eviando a ${xmen.nombre } a la mision`);
+    // }
+
+
+    // const wolverine: Xmen = {
+    //     nombre: 'Logan',
+    //     edad: 45
+    // }
+
+    // enviarMision(wolverine);
+
+     // --------------------------------------------------------------------
+    //                 CLASES
+    // --------------------------------------------------------------------
+
+    // class Avenger {
+
+    //     nombre: string;
+    //     equipo: string;
+    //     nombreReal: string;
+    //     puedePelear: boolean;
+    //     peleasGanadas: number
+
+    //     constructor(nombre: string, equipo: string, real: string, pelear: boolean, ganadas: number) {
+    //         this.nombre = nombre
+    //         this.equipo = equipo;
+    //         this.nombreReal = real;
+    //         this.puedePelear = pelear;
+    //         this.peleasGanadas = ganadas;
+    //     }
+    // }
+
+
+    // otra manera de inicializar la clase
+    class Avenger {
+
+        constructor(public nombre: string,
+                    public equipo: string,
+                    public nombreReal?: string,
+                    public puedePelear: boolean = true,
+                    public peleasGanadas: number = 0) {
+        }
+    }
+
+
+    const antMan = new Avenger('Antman','Ironman');
+
+    console.log(antMan);
 
 })();
